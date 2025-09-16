@@ -101,11 +101,11 @@ class ResumeBuilder {
         this.formData.experience = [];
         document.querySelectorAll('.experience-item').forEach(item => {
             const experience = {
-                title: item.querySelector('[name="experienceTitle"]').value,
-                company: item.querySelector('[name="experienceCompany"]').value,
-                startDate: item.querySelector('[name="experienceStartDate"]').value,
-                endDate: item.querySelector('[name="experienceEndDate"]').value,
-                description: item.querySelector('[name="experienceDescription"]').value
+                title: item.querySelector('[name="experienceTitle"]')?.value || '',
+                company: item.querySelector('[name="experienceCompany"]')?.value || '',
+                startDate: item.querySelector('[name="experienceStartDate"]')?.value || '',
+                endDate: item.querySelector('[name="experienceEndDate"]')?.value || '',
+                description: item.querySelector('[name="experienceDescription"]')?.value || ''
             };
             if (experience.title || experience.company || experience.description) {
                 this.formData.experience.push(experience);
@@ -116,10 +116,10 @@ class ResumeBuilder {
         this.formData.education = [];
         document.querySelectorAll('.education-item').forEach(item => {
             const education = {
-                degree: item.querySelector('[name="educationDegree"]').value,
-                institution: item.querySelector('[name="educationInstitution"]').value,
-                year: item.querySelector('[name="educationYear"]').value,
-                gpa: item.querySelector('[name="educationGPA"]').value
+                degree: item.querySelector('[name="educationDegree"]')?.value || '',
+                institution: item.querySelector('[name="educationInstitution"]')?.value || '',
+                year: item.querySelector('[name="educationYear"]')?.value || '',
+                gpa: item.querySelector('[name="educationGPA"]')?.value || ''
             };
             if (education.degree || education.institution) {
                 this.formData.education.push(education);
@@ -130,10 +130,10 @@ class ResumeBuilder {
         this.formData.projects = [];
         document.querySelectorAll('.project-item').forEach(item => {
             const project = {
-                name: item.querySelector('[name="projectName"]').value,
-                technologies: item.querySelector('[name="projectTech"]').value,
-                description: item.querySelector('[name="projectDescription"]').value,
-                url: item.querySelector('[name="projectUrl"]').value
+                name: item.querySelector('[name="projectName"]')?.value || '',
+                technologies: item.querySelector('[name="projectTech"]')?.value || '',
+                description: item.querySelector('[name="projectDescription"]')?.value || '',
+                url: item.querySelector('[name="projectUrl"]')?.value || ''
             };
             if (project.name || project.description) {
                 this.formData.projects.push(project);
@@ -144,10 +144,10 @@ class ResumeBuilder {
         this.formData.certifications = [];
         document.querySelectorAll('.certification-item').forEach(item => {
             const certification = {
-                name: item.querySelector('[name="certificationName"]').value,
-                organization: item.querySelector('[name="certificationOrg"]').value,
-                date: item.querySelector('[name="certificationDate"]').value,
-                expiry: item.querySelector('[name="certificationExpiry"]').value
+                name: item.querySelector('[name="certificationName"]')?.value || '',
+                organization: item.querySelector('[name="certificationOrg"]')?.value || '',
+                date: item.querySelector('[name="certificationDate"]')?.value || '',
+                expiry: item.querySelector('[name="certificationExpiry"]')?.value || ''
             };
             if (certification.name || certification.organization) {
                 this.formData.certifications.push(certification);
