@@ -1,22 +1,14 @@
 {
-  "name": "smart-resume-builder",
-  "version": "1.0.0",
-  "description": "A Smart Resume Builder + Analyzer using HTML, CSS, and JavaScript",
-  "main": "index.html",
+  "name": "vite-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "npx serve .",
-    "dev": "npx serve ."
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": [
-    "resume",
-    "builder",
-    "analyzer",
-    "html",
-    "css",
-    "javascript"
-  ],
-  "author": "",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "vite": "^5.4.2"
+  }
 }

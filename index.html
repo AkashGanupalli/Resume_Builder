@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Resume Builder + Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="templates.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <span class="logo-icon">📄</span>
+                Smart Resume Builder
+            </h1>
+            <div class="header-actions">
+                <button class="btn btn-secondary" id="resetBtn">Reset All</button>
+                <button class="btn btn-primary" id="downloadBtn">Download PDF</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Resume Score Bar -->
+    <div class="score-container">
+        <div class="container">
+            <div class="score-bar">
+                <div class="score-info">
+                    <span class="score-text">Resume Score: <span id="scoreValue">0</span>%</span>
+                    <span class="score-tip" id="scoreTip">Start filling your details to improve your score!</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class="container">
+            <div class="app-grid">
+                <!-- Form Section -->
+                <section class="form-section">
+                    <div class="section-header">
+                        <h2>Build Your Resume</h2>
+                        <div class="stats">
+                            <span class="stat-item">Words: <span id="wordCount">0</span></span>
+                            <span class="stat-item">Action Verbs: <span id="actionVerbCount">0</span></span>
+                        </div>
+                    </div>
+
+                    <form id="resumeForm" class="resume-form">
+                        <!-- Personal Information -->
+                        <div class="form-group">
+                            <h3 class="form-group-title">Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="jobTitle">Job Title *</label>
+                                    <input type="text" id="jobTitle" name="jobTitle" placeholder="e.g., Software Developer" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="phone">Phone *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location" name="location" placeholder="City, Country">
+                                </div>
+                                <div class="form-field">
+                                    <label for="linkedin">LinkedIn</label>
+                                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Summary -->
+                        <div class="form-group">
+                            <h3 class="form-group-title">Professional Summary</h3>
+                            <div class="form-field">
+                                <label for="summary">Summary</label>
+                                <textarea id="summary" name="summary" rows="4" placeholder="Write a compelling professional summary highlighting your key achievements and skills..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Experience -->
+                        <div class="form-group">
+                            <h3 class="form-group-title">
+                                Work Experience
+                                <button type="button" class="btn-add" id="addExperience">+ Add Experience</button>
+                            </h3>
+                            <div id="experienceContainer">
+                                <div class="experience-item">
+                                    <div class="form-row">
+                                        <div class="form-field">
+                                            <label>Job Title</label>
+                                            <input type="text" name="experienceTitle" placeholder="e.g., Senior Software Developer">
+                                        </div>
+                                        <div class="form-field">
+                                            <label>Company</label>
+                                            <input type="text" name="experienceCompany" placeholder="Company Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-field">
+                                            <label>Start Date</label>
+                                            <input type="text" name="experienceStartDate" placeholder="e.g., Jan 2020">
+                                        </div>
+                                        <div class="form-field">
+                                            <label>End Date</label>
+                                            <input type="text" name="experienceEndDate" placeholder="e.g., Present">
+                                        </div>
+                                    </div>
+                                    <div class="form-field">
+                                        <label>Description</label>
+                                        <textarea name="experienceDescription" rows="3" placeholder="Describe your key responsibilities and achievements using action verbs like 'developed', 'led', 'improved'..."></textarea>
+                                    </div>
+                                    <button type="button" class="btn-remove" onclick="removeExperience(this)">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="form-group">
+                            <h3 class="form-group-title">
+                                Education
+                                <button type="button" class="btn-add" id="addEducation">+ Add Education</button>
+                            </h3>
+                            <div id="educationContainer">
+                                <div class="education-item">
+                                    <div class="form-row">
+                                        <div class="form-field">
+                                            <label>Degree</label>
+                                            <input type="text" name="educationDegree" placeholder="e.g., Bachelor of Computer Science">
+                                        </div>
+                                        <div class="form-field">
+                                            <label>Institution</label>
+                                            <input type="text" name="educationInstitution" placeholder="University Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-field">
+                                            <label>Year</label>
+                                            <input type="text" name="educationYear" placeholder="e.g., 2020">
+                                        </div>
+                                        <div class="form-field">
+                                            <label>GPA (Optional)</label>
+                                            <input type="text" name="educationGPA" placeholder="e.g., 3.8/4.0">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn-remove" onclick="removeEducation(this)">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="form-group">
+                            <h3 class="form-group-title">Skills</h3>
+                            <div class="form-field">
+                                <label for="skills">Skills (comma-separated)</label>
+                                <textarea id="skills" name="skills" rows="3" placeholder="JavaScript, React, Node.js, Python, SQL, Project Management, Leadership..."></textarea>
+                                <small>Separate each skill with a comma. Include both technical and soft skills.</small>
+                            </div>
+                        </div>
+
+                        <!-- Projects -->
+                        <div class="form-group">
+                            <h3 class="form-group-title">
+                                Projects
+                                <button type="button" class="btn-add" id="addProject">+ Add Project</button>
+                            </h3>
+                            <div id="projectsContainer">
+                                <div class="project-item">
+                                    <div class="form-row">
+                                        <div class="form-field">
+                                            <label>Project Name</label>
+                                            <input type="text" name="projectName" placeholder="e.g., E-commerce Platform">
+                                        </div>
+                                        <div class="form-field">
+                                            <label>Technologies</label>
+                                            <input type="text" name="projectTech" placeholder="React, Node.js, MongoDB">
+                                        </div>
+                                    </div>
+                                    <div class="form-field">
+                                        <label>Description</label>
+                                        <textarea name="projectDescription" rows="2" placeholder="Describe the project, your role, and key achievements..."></textarea>
+                                    </div>
+                                    <div class="form-field">
+                                        <label>Project URL (Optional)</label>
+                                        <input type="url" name="projectUrl" placeholder="https://github.com/username/project">
+                                    </div>
+                                    <button type="button" class="btn-remove" onclick="removeProject(this)">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Certifications -->
+                        <div class="form-group">
+                            <h3 class="form-group-title">
+                                Certifications
+                                <button type="button" class="btn-add" id="addCertification">+ Add Certification</button>
+                            </h3>
+                            <div id="certificationsContainer">
+                                <div class="certification-item">
+                                    <div class="form-row">
+                                        <div class="form-field">
+                                            <label>Certification Name</label>
+                                            <input type="text" name="certificationName" placeholder="e.g., AWS Certified Solutions Architect">
+                                        </div>
+                                        <div class="form-field">
+                                            <label>Issuing Organization</label>
+                                            <input type="text" name="certificationOrg" placeholder="e.g., Amazon Web Services">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-field">
+                                            <label>Date Obtained</label>
+                                            <input type="text" name="certificationDate" placeholder="e.g., March 2023">
+                                        </div>
+                                        <div class="form-field">
+                                            <label>Expiry Date (Optional)</label>
+                                            <input type="text" name="certificationExpiry" placeholder="e.g., March 2026">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn-remove" onclick="removeCertification(this)">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Preview Section -->
+                <section class="preview-section">
+                    <div class="section-header">
+                        <h2>Resume Preview</h2>
+                        <div class="template-selector">
+                            <button class="template-btn active" data-template="modern">Modern</button>
+                            <button class="template-btn" data-template="minimal">Minimal</button>
+                            <button class="template-btn" data-template="creative">Creative</button>
+                        </div>
+                    </div>
+
+                    <div class="resume-preview" id="resumePreview">
+                        <div class="resume-content modern-template" id="resumeContent">
+                            <!-- Resume content will be generated here -->
+                            <div class="resume-placeholder">
+                                <div class="placeholder-icon">📄</div>
+                                <h3>Your Resume Preview</h3>
+                                <p>Start filling the form to see your resume come to life!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analysis Panel -->
+                    <div class="analysis-panel">
+                        <h3>Resume Analysis</h3>
+                        <div class="analysis-grid">
+                            <div class="analysis-item">
+                                <div class="analysis-icon">✅</div>
+                                <div class="analysis-content">
+                                    <div class="analysis-title">Completeness</div>
+                                    <div class="analysis-value" id="completenessValue">0/7 sections</div>
+                                </div>
+                            </div>
+                            <div class="analysis-item">
+                                <div class="analysis-icon">🎯</div>
+                                <div class="analysis-content">
+                                    <div class="analysis-title">Action Verbs</div>
+                                    <div class="analysis-value" id="actionVerbsValue">0 found</div>
+                                </div>
+                            </div>
+                            <div class="analysis-item">
+                                <div class="analysis-icon">🛠️</div>
+                                <div class="analysis-content">
+                                    <div class="analysis-title">Skills Count</div>
+                                    <div class="analysis-value" id="skillsValue">0 skills</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analysis-suggestions" id="analysisSuggestions">
+                            <div class="suggestion-item">💡 Add more sections to improve your resume completeness</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="analyzer.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

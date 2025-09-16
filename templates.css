@@ -1,0 +1,469 @@
+/* Modern Template */
+.modern-template {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.modern-template .resume-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px 8px 0 0;
+    margin: -2rem -2rem 2rem -2rem;
+}
+
+.modern-template .resume-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.modern-template .resume-title {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.modern-template .resume-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.modern-template .resume-section {
+    margin-bottom: 2rem;
+}
+
+.modern-template .section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #667eea;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.modern-template .resume-summary {
+    text-align: justify;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.modern-template .experience-item,
+.modern-template .education-item,
+.modern-template .project-item,
+.modern-template .certification-item {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid #e2e8f0;
+    position: relative;
+}
+
+.modern-template .experience-item::before,
+.modern-template .education-item::before,
+.modern-template .project-item::before,
+.modern-template .certification-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background: #667eea;
+    border-radius: 50%;
+}
+
+.modern-template .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.modern-template .item-title {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.modern-template .item-company,
+.modern-template .item-institution {
+    color: #667eea;
+    font-weight: 500;
+}
+
+.modern-template .item-date {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.modern-template .item-description {
+    color: #475569;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+}
+
+.modern-template .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.modern-template .skill-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Minimal Template */
+.minimal-template {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #374151;
+}
+
+.minimal-template .resume-header {
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 2rem;
+}
+
+.minimal-template .resume-name {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.minimal-template .resume-title {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.minimal-template .resume-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.minimal-template .resume-section {
+    margin-bottom: 2.5rem;
+}
+
+.minimal-template .section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.minimal-template .resume-summary {
+    text-align: justify;
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.minimal-template .experience-item,
+.minimal-template .education-item,
+.minimal-template .project-item,
+.minimal-template .certification-item {
+    margin-bottom: 2rem;
+}
+
+.minimal-template .item-header {
+    margin-bottom: 0.5rem;
+}
+
+.minimal-template .item-title {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 1rem;
+}
+
+.minimal-template .item-company,
+.minimal-template .item-institution {
+    color: #6b7280;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.minimal-template .item-date {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    float: right;
+}
+
+.minimal-template .item-description {
+    color: #4b5563;
+    line-height: 1.7;
+    margin-top: 0.5rem;
+}
+
+.minimal-template .skills-list {
+    line-height: 2;
+    color: #4b5563;
+}
+
+.minimal-template .skill-separator {
+    color: #d1d5db;
+    margin: 0 0.5rem;
+}
+
+/* Creative Template */
+.creative-template {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.6;
+    color: #2d3748;
+}
+
+.creative-template .resume-header {
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+    background-size: 300% 300%;
+    animation: gradient 3s ease infinite;
+    color: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    margin: -2rem -2rem 2rem -2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.creative-template .resume-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.creative-template .resume-name {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.creative-template .resume-title {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+}
+
+.creative-template .resume-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+.creative-template .resume-section {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.creative-template .section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.creative-template .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.creative-template .resume-summary {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #4a5568;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.creative-template .experience-item,
+.creative-template .education-item,
+.creative-template .project-item,
+.creative-template .certification-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.1);
+}
+
+.creative-template .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.creative-template .item-title {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 1.1rem;
+}
+
+.creative-template .item-company,
+.creative-template .item-institution {
+    color: #667eea;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+}
+
+.creative-template .item-date {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+}
+
+.creative-template .item-description {
+    color: #4a5568;
+    line-height: 1.7;
+    margin-top: 0.75rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.creative-template .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.creative-template .skill-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.creative-template .skill-tag:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive Adjustments for Templates */
+@media (max-width: 768px) {
+    .modern-template .resume-name,
+    .minimal-template .resume-name,
+    .creative-template .resume-name {
+        font-size: 1.8rem;
+    }
+    
+    .modern-template .resume-contact,
+    .minimal-template .resume-contact,
+    .creative-template .resume-contact {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .modern-template .item-header,
+    .minimal-template .item-header,
+    .creative-template .item-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .minimal-template .item-date,
+    .creative-template .item-date {
+        float: none;
+        align-self: flex-start;
+    }
+    
+    .creative-template .experience-item,
+    .creative-template .education-item,
+    .creative-template .project-item,
+    .creative-template .certification-item {
+        padding: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .modern-template,
+    .minimal-template,
+    .creative-template {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    
+    .modern-template .resume-header,
+    .creative-template .resume-header {
+        background: #667eea !important;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    .creative-template .resume-header {
+        animation: none;
+    }
+    
+    .creative-template .resume-header::before {
+        display: none;
+    }
+    
+    .modern-template .skill-tag,
+    .creative-template .skill-tag {
+        background: #667eea !important;
+        -webkit-print-color-adjust: exact;
+    }
+}
