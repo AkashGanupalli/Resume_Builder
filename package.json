@@ -1,0 +1,22 @@
+{
+  "name": "smart-resume-builder",
+  "version": "1.0.0",
+  "description": "A Smart Resume Builder + Analyzer using HTML, CSS, and JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "resume",
+    "builder",
+    "analyzer",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
